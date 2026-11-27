@@ -1,0 +1,50 @@
+# --- OS metadata ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor / IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- Local environment & secrets ---
+.env
+.env.*
+!.env.example
+*.local
+secrets/
+
+# --- Logs & temp ---
+*.log
+logs/
+tmp/
+.cache/
+
+# --- Node / front-end tooling ---
+node_modules/
+dist/
+build/
+coverage/
+.pnpm-store/
+*.tsbuildinfo
+
+# --- Python tooling ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- JVM / build output ---
+target/
+*.class
+*.jar
+.gradle/
+
+# --- Agent scratch output ---
+.opencode/tmp/
