@@ -34,6 +34,24 @@
       },
       "registered_skills": [],
       "installed_at": "2026-11-26T08:34:14.313125+00:00"
+    },
+    "git": {
+      "version": "1.0.9",
+      "source": "local",
+      "manifest_hash": "sha256:b0875c95d7f683fe9c28561c5e106ead552d9f26c50e8ce8d54d9d176a1226c9",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "opencode": [
+          "speckit.git.feature",
+          "speckit.git.validate",
+          "speckit.git.remote",
+          "speckit.git.initialize",
+          "speckit.git.commit"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-11-27T08:18:33.367704+00:00"
     }
   }
 }

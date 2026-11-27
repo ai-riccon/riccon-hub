@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "TASK-0001",
+  "speckit_id": "T001",
+  "feature": "001-mvp",
+  "title": "任务标题",
+  "phase": "Phase 1: Setup",
+  "story": "US1",
+  "parallel": false,
+  "risk": "medium",
+  "owner": "sdd/builder",
+  "status": "planned",
+  "write_scope": [
+    "path/to/module"
+  ],
+  "acceptance": [
+    "可观察、可测试的验收标准"
+  ],
+  "verify": [
+    "<项目合同中的验证命令>"
+  ],
+  "depends_on": [],
+  "baseline_commit": null,
+  "end_commit": null,
+  "evidence": [],
+  "review": null,
+  "speckit_done": false,
+  "notes": [],
+  "created_at": "2026-01-01T00:00:00+08:00",
+  "updated_at": "2026-01-01T00:00:00+08:00"
+}

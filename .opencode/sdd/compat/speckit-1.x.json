@@ -1,0 +1,43 @@
+{
+  "range": ">=1.4.5 <2.0",
+  "tested_versions": [
+    "1.4.5"
+  ],
+  "required_commands": [
+    "speckit.constitution",
+    "speckit.specify",
+    "speckit.clarify",
+    "speckit.plan",
+    "speckit.checklist",
+    "speckit.tasks",
+    "speckit.analyze",
+    "speckit.implement",
+    "speckit.converge"
+  ],
+  "required_templates": [
+    "spec-template.md",
+    "plan-template.md",
+    "tasks-template.md",
+    "checklist-template.md",
+    "constitution-template.md"
+  ],
+  "required_scripts": [
+    "common",
+    "create-new-feature",
+    "setup-plan",
+    "setup-tasks",
+    "check-prerequisites",
+    "resolve-template"
+  ],
+  "required_extensions": [
+    "git",
+    "assess",
+    "bug"
+  ],
+  "notes": {
+    "implement": "不要端到端执行；lead 只用预检和任务语义，按任务派发 builder。",
+    "feature": "当前 feature 由 .specify/feature.json 跟踪，不是 git 分支。",
+    "events": "opencode 集成默认关闭事件插件；需要生命周期钩子时再开启。",
+    "2.0": "spec-kit 2.0 必须升级 Riccon SDD，不保证向后兼容。"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://riccon.dev/sdd/evidence.schema.json",
+  "title": "Riccon SDD evidence",
+  "type": "object",
+  "required": ["schema_version", "id", "task", "agent", "command", "cwd", "exit_code", "started_at", "finished_at", "commit", "dirty", "log_path", "manual", "created_at"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^EV-[0-9]{4,}$" },
+    "task": { "type": "string", "pattern": "^TASK-[0-9]{4,}$" },
+    "agent": { "type": "string" },
+    "command": { "type": "string", "minLength": 1 },
+    "cwd": { "type": "string" },
+    "exit_code": { "type": "integer" },
+    "signal": { "type": ["string", "null"] },
+    "started_at": { "type": "string" },
+    "finished_at": { "type": "string" },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "commit": { "type": "string", "minLength": 1 },
+    "dirty": { "type": "boolean" },
+    "timed_out": { "type": "boolean" },
+    "gate": { "type": ["string", "null"] },
+    "log_path": { "type": "string" },
+    "log_bytes": { "type": "integer", "minimum": 0 },
+    "truncated": { "type": "boolean" },
+    "manual": { "type": "boolean" },
+    "created_at": { "type": "string" }
+  }
+}

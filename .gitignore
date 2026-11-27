@@ -48,3 +48,5 @@ target/
 
 # --- Agent scratch output ---
 .opencode/tmp/
+.sdd/backup/
+.serena/

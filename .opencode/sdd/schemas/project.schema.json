@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://riccon.dev/sdd/project.schema.json",
+  "title": "Riccon SDD project",
+  "type": "object",
+  "required": ["schema_version", "project_id", "name", "created_at", "team_version", "track", "timezone", "integration"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "project_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string" },
+    "team_version": { "type": "string" },
+    "speckit_version": { "type": ["string", "null"] },
+    "team_source": { "type": ["string", "null"] },
+    "track": { "enum": ["greenfield"] },
+    "timezone": { "type": "string" },
+    "integration": { "const": "opencode" }
+  }
+}

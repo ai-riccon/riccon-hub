@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://riccon.dev/sdd/decision.schema.json",
+  "title": "Riccon SDD decision",
+  "type": "object",
+  "required": ["schema_version", "id", "status", "owner", "blocking", "question", "options", "recommendation", "default", "created_at"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^DEC-[0-9]{4,}$" },
+    "status": { "enum": ["open", "answered", "blocked"] },
+    "owner": { "enum": ["user", "team"] },
+    "blocking": { "type": "boolean" },
+    "gate": { "type": ["string", "null"], "enum": ["kickoff", "spec", "plan", "tasks", "final", null] },
+    "question": { "type": "string", "minLength": 1 },
+    "options": { "type": "array", "items": { "type": "string" } },
+    "recommendation": { "type": "string" },
+    "default": { "type": "string" },
+    "deadline": { "type": "string" },
+    "answer": { "type": ["string", "null"] },
+    "answer_kind": { "type": ["string", "null"], "enum": ["answer", "approve", "reject", "accept", "conditional", null] },
+    "answered_at": { "type": ["string", "null"] },
+    "created_at": { "type": "string" }
+  }
+}

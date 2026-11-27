@@ -1,0 +1,28 @@
+language: zh-CN
+timezone: Asia/Shanghai
+models:
+  default: inherit
+  lead: inherit
+  product: inherit
+  architect: inherit
+  builder: inherit
+  verifier: inherit
+  ops: inherit
+coverage:
+  line: 80
+  branch: 70
+evidence:
+  hash: false
+  max_log_bytes: 2097152
+handoff:
+  context_tokens: 120000
+  steps: 300
+  tool_calls: 60
+parallel:
+  enabled: false
+  max_builders: 2
+git:
+  auto_commit: false
+  branch_prefix: feature/
+speckit:
+  compat_range: ">=1.4.5 <2.0"

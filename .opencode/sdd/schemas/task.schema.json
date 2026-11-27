@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://riccon.dev/sdd/task.schema.json",
+  "title": "Riccon SDD task",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "status", "risk", "write_scope", "acceptance", "verify", "created_at", "updated_at"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^TASK-[0-9]{4,}$" },
+    "speckit_id": { "type": ["string", "null"], "pattern": "^T[0-9]+$" },
+    "feature": { "type": ["string", "null"] },
+    "title": { "type": "string", "minLength": 1 },
+    "phase": { "type": ["string", "null"] },
+    "story": { "type": ["string", "null"] },
+    "parallel": { "type": "boolean" },
+    "risk": { "enum": ["low", "medium", "high"] },
+    "max_risk": { "enum": ["low", "medium", "high"] },
+    "owner": { "type": ["string", "null"] },
+    "status": { "enum": ["planned", "ready", "in_progress", "review", "done", "blocked"] },
+    "write_scope": { "type": "array", "items": { "type": "string" } },
+    "acceptance": { "type": "array", "items": { "type": "string" } },
+    "verify": { "type": "array", "items": { "type": "string" } },
+    "depends_on": { "type": "array", "items": { "type": "string" } },
+    "baseline_commit": { "type": ["string", "null"] },
+    "end_commit": { "type": ["string", "null"] },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "review": { "type": ["string", "null"] },
+    "speckit_done": { "type": "boolean" },
+    "notes": { "type": "array", "items": { "type": "string" } },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  }
+}

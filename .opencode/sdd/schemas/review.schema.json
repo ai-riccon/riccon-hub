@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://riccon.dev/sdd/review.schema.json",
+  "title": "Riccon SDD review",
+  "type": "object",
+  "required": ["schema_version", "id", "kind", "reviewer", "verdict", "independent", "reviewed_evidence", "findings", "created_at"],
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "not": { "const": "analyze" } } } },
+      "then": {
+        "required": ["reviewed_commit", "reviewed_evidence"],
+        "properties": {
+          "reviewed_commit": { "type": "string", "minLength": 1 },
+          "reviewed_evidence": { "minItems": 1 }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["task", "analyze", "converge", "final", "milestone"] },
+    "task": { "type": ["string", "null"] },
+    "gate": { "type": ["string", "null"] },
+    "feature": { "type": ["string", "null"] },
+    "reviewer": { "type": "string" },
+    "session": { "type": ["string", "null"] },
+    "verdict": { "enum": ["pass", "fail", "clean", "converged"] },
+    "independent": { "type": "boolean" },
+    "reviewed_commit": { "type": ["string", "null"], "minLength": 1 },
+    "reviewed_evidence": { "type": "array", "items": { "type": "string" } },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "title", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "severity": { "enum": ["P0", "P1", "P2", "P3"] },
+          "title": { "type": "string" },
+          "status": { "enum": ["open", "fixed", "accepted", "closed"] },
+          "owner": { "type": "string" },
+          "due": { "type": "string" },
+          "accepted_reason": { "type": "string" }
+        }
+      }
+    },
+    "created_at": { "type": "string" }
+  }
+}

@@ -1,0 +1,19 @@
+# 模型与 steps 的单一事实源。
+# inherit 表示使用当前会话模型；需要时改成 "provider/model#variant"。
+default: inherit
+
+roles:
+  lead: inherit
+  product: inherit
+  architect: inherit
+  builder: inherit
+  verifier: inherit
+  ops: inherit
+
+steps:
+  lead: 440
+  product: 240
+  architect: 400
+  builder: 600
+  verifier: 400
+  ops: 300
