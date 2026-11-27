@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "team_version": "0.1.3",
-  "installed_at": "2026-11-27T08:18:34.280Z",
+  "team_version": "0.1.4",
+  "installed_at": "2026-11-27T08:27:00.891Z",
   "speckit_version": "1.4.5",
   "compat_range": ">=1.4.5 <2.0",
   "files": [
@@ -92,7 +92,7 @@
     },
     {
       "path": ".opencode/sdd/scripts/check.mjs",
-      "sha256": "f621ea96d18b2bb5630adfacdd1b0947ad59c5221d55938214a7a1000f6615c4",
+      "sha256": "31dae58d0aba5bfa9edb2a8a7ea3e26909fa772ea551a2821f73548036870824",
       "managed": true
     },
     {
@@ -197,7 +197,7 @@
     },
     {
       "path": ".opencode/sdd/scripts/lib/version.mjs",
-      "sha256": "e589fda33d844375479918b06dde4fc8616e0e998123c59232ffb3d50e6df90a",
+      "sha256": "2e206b24fc8792f6a2efda1e527669db6217db2d514e24c1e9b3b9692bf5a549",
       "managed": true
     },
     {
@@ -267,7 +267,7 @@
     },
     {
       "path": ".opencode/sdd/templates/agents/permissions.yml",
-      "sha256": "7327b6bd53fb5cee8428551964db8efdb1d8c5a49c7c1f2d8650c9ab10dd234b",
+      "sha256": "7d7afcc15ddfe070be520e63fef5ed140927a08116c20921016d661a4616b2d8",
       "managed": true
     },
     {
@@ -322,7 +322,7 @@
     },
     {
       "path": ".opencode/sdd/package.json",
-      "sha256": "53249bd49c6ee2e4f6576f3c54dee9d53be3e20c0ce5b2e963746186db087217",
+      "sha256": "03606a9183d0b689734f814a78af5f29d0df5073922b824bfb4013bd5fc1bb5e",
       "managed": true
     },
     {

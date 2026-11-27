@@ -1,4 +1,7 @@
-﻿# Riccon SDD 鏉冮檺鍗曚竴浜嬪疄婧愩€?# 鐢?scripts/sync-agents.mjs 鍐欏叆鍚?agent frontmatter锛沝octor 妫€鏌ユ紓绉汇€?# 瑙勫垯椤哄簭锛歜ase 鈫?subagents 鈫?瑙掕壊鐗瑰畾锛汷penCode 浠ユ渶鍚庡尮閰嶄负鍑嗐€?
+# Riccon SDD 权限单一事实源。
+# 由 scripts/sync-agents.mjs 写入各 agent frontmatter；doctor 检查漂移。
+# 规则顺序：base → subagents → 角色特定；OpenCode 以最后匹配为准。
+
 base:
   - action: read
     resource: "*"

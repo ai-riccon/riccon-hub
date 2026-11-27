@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { checkAgentSync } from "./lib/agents.mjs";
 import { checkVersions } from "./lib/version-check.mjs";
 import { TEAM_VERSION } from "./lib/version.mjs";
+import { listFilesRecursive, readText } from "./lib/util.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
@@ -40,6 +41,32 @@ for (const file of [
 }
 
 errors.push(...checkVersions(repoRoot, TEAM_VERSION));
+
+function checkEncoding(root) {
+  const textFiles = [
+    ...listFilesRecursive(path.join(root, ".opencode")),
+    ...listFilesRecursive(path.join(root, "templates")),
+    ...listFilesRecursive(path.join(root, "docs")),
+    path.join(root, "README.md"),
+    path.join(root, "CHANGELOG.md"),
+  ];
+  for (const file of textFiles) {
+    const buffer = fs.readFileSync(file);
+    const rel = path.relative(root, file).replace(/\\/g, "/");
+    if (buffer.length >= 3 && buffer[0] === 0xef && buffer[1] === 0xbb && buffer[2] === 0xbf) {
+      errors.push(`${rel} 带 UTF-8 BOM`);
+    }
+    if (buffer.toString("utf8").includes("\uFFFD")) {
+      errors.push(`${rel} 含替换字符，疑似编码损坏`);
+    }
+  }
+  const permissions = readText(path.join(root, "templates", "agents", "permissions.yml"), "");
+  if (!permissions.startsWith("# Riccon SDD 权限单一事实源。")) {
+    errors.push("templates/agents/permissions.yml 头部中文注释损坏");
+  }
+}
+
+checkEncoding(repoRoot);
 
 const sync = checkAgentSync(repoRoot, repoRoot);
 if (!sync.ok) errors.push(...sync.problems);
